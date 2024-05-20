@@ -147,15 +147,15 @@ get_sdks() {
 		# Grab latest for provided platforms
 		urls=$(curl https://api.github.com/repos/theos/sdks/releases/latest | grep download_url | sed 's/.*: "\(.*\)"/\1/')
     echo "urls === "
-    echo $urls
+    echo "$urls"
     echo "urls end === "
 		ios_url=$(echo "$urls" | grep 'iPhoneOS' | sort -V | tail -n1)
     echo "ios_url === "
-    echo $ios_url
+    echo "$ios_url"
     echo "ios_url end === "
 		tvos_url=$(echo "$urls" | grep 'AppleTVOS' | sort -V | tail -n1)
     echo "tvos_url === "
-    echo $tvos_url
+    echo "$tvos_url"
     echo "tvos_url end === "
 		curl -L "$ios_url" | tar -xJv -C "$THEOS/sdks"
 		curl -L "$tvos_url" | tar -xJv -C "$THEOS/sdks"
