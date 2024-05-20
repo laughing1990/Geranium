@@ -19,6 +19,7 @@ jobs:
     - name: install Homebrew
       run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - name: install Theos
-      run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+      #run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+      run: bash -c ./install_theos.sh
     - name: start build
       run: ./ipabuild.sh
