@@ -26,4 +26,5 @@ jobs:
     - name: start build
       run: |
           chmod +x /Users/runner/work/Geranium/Geranium/ipabuild.sh
-          bash -c /Users/runner/work/Geranium/Geranium/ipabuild.sh
+          cd /Users/runner/work/Geranium/Geranium
+          ./ipabuild.sh
