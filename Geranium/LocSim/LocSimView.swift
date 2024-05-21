@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import AlertKit
+import Foundation
 
 struct LocSimView: View {
     @StateObject private var appSettings = AppSettings()
