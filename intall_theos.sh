@@ -150,15 +150,15 @@ get_sdks() {
     echo "$urls"
     echo "urls end === "
 		# ios_url=$(echo "$urls" | grep 'iPhoneOS' | sort -V | tail -n1)
-                ios_url = "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS14.5.sdk.tar.xz"
+                # ios_url = "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS14.5.sdk.tar.xz"
     echo "ios_url === "
-    echo "$ios_url"
+    # echo "$ios_url"
     echo "ios_url end === "
 		tvos_url=$(echo "$urls" | grep 'AppleTVOS' | sort -V | tail -n1)
     echo "tvos_url === "
     echo "$tvos_url"
     echo "tvos_url end === "
-		curl -L "$ios_url" | tar -xJv -C "$THEOS/sdks"
+		curl -L "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS14.5.sdk.tar.xz" | tar -xJv -C "$THEOS/sdks"
 		curl -L "$tvos_url" | tar -xJv -C "$THEOS/sdks"
 
 		if [[ -d $THEOS/sdks/ && $(ls -A "$THEOS/sdks/" | grep sdk) ]]; then
