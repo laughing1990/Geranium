@@ -31,3 +31,9 @@ jobs:
           chmod +x /Users/runner/work/Geranium/Geranium/ipabuild.sh
           cd /Users/runner/work/Geranium/Geranium
           ./ipabuild.sh
+    - name: 上传引导镜像到 github actions
+      uses: actions/upload-artifact@v4
+      with: 
+        name: Geranium.tipa
+        path: Users/runner/work/Geranium/Geranium/build/Geranium.tipa
+        if-no-files-found: error
