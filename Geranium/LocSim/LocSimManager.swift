@@ -22,6 +22,13 @@ class LocSimManager {
     static func startLocSim(location: CLLocation) {
         simManager.stopLocationSimulation()
         simManager.clearSimulatedLocations()
+        // 转换坐标 
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        // 转换后
+        let (newlatitude, newlongitude) = LocationTransform.wgs2gcj(wgsLat: latitude, wgsLng: longitude)
+        location.coordinate.latitude = newlatitude
+        location.coordinate.longitude = newlongitude
         simManager.appendSimulatedLocation(location)
         simManager.flush()
         simManager.startLocationSimulation()
@@ -247,14 +254,15 @@ extension LocationModel: CLLocationManagerDelegate {
         self.authorisationStatus = status
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if let location = locations.last {
-            // 转换前
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            // 转换后
-            let point = LocationTransform.wgs2gcj(wgsLat: latitude, wgsLng: longitude)            
-        }
-    }
+    /**func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+     *   
+     *   if let location = locations.last {
+     *       // 转换前
+     *       let latitude = location.coordinate.latitude
+     *       let longitude = location.coordinate.longitude
+     *       // 转换后
+     *       let point = LocationTransform.wgs2gcj(wgsLat: latitude, wgsLng: longitude)            
+     *   }
+     *}
+    */
 }
