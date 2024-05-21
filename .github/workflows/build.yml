@@ -12,8 +12,8 @@ on:
 jobs:
   build:
 
-    #runs-on: macos-latest
-    runs-on:	macos-13
+    runs-on: macos-latest
+    #runs-on:	macos-13
 
     steps:
     - uses: actions/checkout@v4
@@ -26,6 +26,8 @@ jobs:
           bash -c /Users/runner/work/Geranium/Geranium/intall_theos.sh
     - name: start build
       run: |
+          export THEOS=~/theos
+          export THEOS_MAKE_PATH=$(THEOS)/makefiles
           chmod +x /Users/runner/work/Geranium/Geranium/ipabuild.sh
           cd /Users/runner/work/Geranium/Geranium
           ./ipabuild.sh
