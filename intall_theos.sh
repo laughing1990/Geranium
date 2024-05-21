@@ -149,7 +149,8 @@ get_sdks() {
     echo "urls === "
     echo "$urls"
     echo "urls end === "
-		ios_url=$(echo "$urls" | grep 'iPhoneOS' | sort -V | tail -n1)
+		# ios_url=$(echo "$urls" | grep 'iPhoneOS' | sort -V | tail -n1)
+                ios_url = "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS14.5.sdk.tar.xz"
     echo "ios_url === "
     echo "$ios_url"
     echo "ios_url end === "
