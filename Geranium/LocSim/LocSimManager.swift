@@ -72,4 +72,15 @@ extension LocationModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.authorisationStatus = status
     }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.last {
+            // 转换前
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            // 转换后
+            let point = LocationTransform.wgs2gcj(wgsLat: latitude, wgsLng: longitude)            
+        }
+    }
 }
