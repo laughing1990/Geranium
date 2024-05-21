@@ -37,5 +37,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with: 
         name: Geranium.tipa
-        path: Users/runner/work/Geranium/Geranium/build/Geranium.tipa
+        path: /Users/runner/work/Geranium/Geranium/build/Geranium.tipa
         if-no-files-found: error
