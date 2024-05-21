@@ -31,6 +31,8 @@ jobs:
           chmod +x /Users/runner/work/Geranium/Geranium/ipabuild.sh
           cd /Users/runner/work/Geranium/Geranium
           ./ipabuild.sh
+          cd /Users/runner/work/Geranium/Geranium/build
+          ls -l
     - name: 上传引导镜像到 github actions
       uses: actions/upload-artifact@v4
       with: 
