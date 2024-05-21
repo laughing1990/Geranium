@@ -48,7 +48,7 @@ struct LocSimView: View {
             if let coordinate = newValue {
                 lat = coordinate.coordinate.latitude
                 long = coordinate.coordinate.longitude
-                let (newlatitude, newlongitude) = LocationTransform.wgs2gcj(wgsLat: lat, wgsLng: long)
+                let (newlatitude, newlongitude) = LocationTransform.gcj2wgs(wgsLat: lat, wgsLng: long)
                 LocSimManager.startLocSim(location: .init(latitude: newlatitude, longitude: newlongitude))
                 AlertKitAPI.present(
                     title: "Started !",
